@@ -1,0 +1,94 @@
+<% include ../partials/header.ejs %>
+    <body>
+        <div id="fh5co-wrapper">
+        <div id="fh5co-page">
+        <div id="fh5co-header">
+            <header id="fh5co-header-section">
+                <div class="container">
+                    <div class="nav-header">
+                        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+                        <h1 class="animate-box" id="fh5co-logo"><a href="/home"><img class="logo-img" src="./assets/images/SR-LOGO.png"></a></h1>
+                        <!-- START #fh5co-menu-wrap -->
+                        <nav id="fh5co-menu-wrap" role="navigation">
+                            <ul class="sf-menu" id="fh5co-primary-menu">
+                            <% if(!currentUser){ %>
+                                <li><a href="/home">Home</a></li>
+                                <li><a href="/contact">Contact Us</a></li>
+                                <li class="active"><a href="/discussions">Discussions</a></li>
+                                <li><a href="/downloads">Downloads</a></li>
+                                <li><a href="/login">SR PORTAL | Login</a></li>
+                            <% } else { %>
+                                <li><a href="#">Signed in as <%= currentUser.username%></a></li>
+                                <li><a href="/home">Home</a></li>
+                                <li><a href="/contact">Contact Us</a></li>
+                                <li class="active"><a href="/discussions">Discussions</a></li>
+                                <li><a href="/downloads">Downloads</a></li>
+                                <li><a href="/logout">Logout</a></li>
+                            <% } %>             
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            
+        </div>
+        
+        <div class="fh5co-hero fh5co-hero-2">
+            <div class="fh5co-overlay-d"></div>
+            <div class="fh5co-cover fh5co-cover_2 text-center" data-stellar-background-ratio="0.5" style="background-image: url(./assets/images/fest7c.jpg);">
+                <div class="desc animate-box">
+                    <h2>SR Discussions</h2>
+                    <!-- <p>
+                        <a class="btn btn-primary btn-lg" href="/discussions/new">Start New Discussion</a>
+                    </p> -->
+                </div>
+            </div>
+        </div>
+        <!-- end:header-top -->
+
+         <div id="fh5co-work-section">
+            <div class="container">
+            <div class="row">
+                <h1>Add New Discussion</h1>
+                <div>
+                    <form action="/discussions" method="POST">
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Topic" name="name">    
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Description" name="description">    
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-lg btn-primary btn-block">Submit</button>    
+                        </div>
+                    </form>
+                </div>                
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" style="display:flex; flex-wrap: wrap;">
+                <% discussions.forEach(function(discussion){ %>
+                       <div class="col-md-12 col-sm-12">
+                           <div class="thumbnail">
+                               <div class="caption">
+                                    <h2><%= discussion.name %></h2>
+                                    <p>
+                                        <em>Submitted by <%= discussion.author.username %> on <%= discussion.created.toDateString() %></em>
+                                    </p>
+                                </div>
+                                <p>
+                                    <%= discussion.description %>
+                                </p>
+                                <p>
+                                    <a href="/discussions-<%= discussion._id %>" class="btn btn-xs btn-primary">More Info</a>
+                                </p>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    
+
+       
+<% include ../partials/footer %>

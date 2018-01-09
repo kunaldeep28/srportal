@@ -1,0 +1,55 @@
+<% include partials/header.ejs %>
+	<body>
+		<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+		<div id="fh5co-header">
+			<header id="fh5co-header-section">
+				<div class="container">
+					<div class="nav-header">
+						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+						<h1 class="animate-box" id="fh5co-logo"><a href="/home"><img class="logo-img" src="./assets/images/SR-LOGO.png"></a></h1>
+						<!-- START #fh5co-menu-wrap -->
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+							<% if(!currentUser){ %>
+                    			<li><a href="/home">Home</a></li>
+                    			<li><a href="/contact">Contact</a></li>
+                    			<li><a href="/discussions">Discussions</a></li>
+                  	  			<li><a href="/downloads">Downloads</a></li>
+                    			<li class="active"><a href="/login">SR PORTAL | Login</a></li>
+                  	  		<% } else { %>
+                  	  			<li><a href="#">Signed in as <%= currentUser.username%></a></li>
+                  	  			<li><a href="/home">Home</a></li>
+                    			<li><a href="/contact">Contact</a></li>
+                    			<li><a href="/discussions">Discussions</a></li>
+                  	  			<li><a href="/downloads">Downloads</a></li>
+                            	<li><a href="/logout">Logout</a></li>
+                    		<% } %>				
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
+			
+		</div>
+		
+
+		<div class="fh5co-hero">
+			<div class="fh5co-overlay"></div>
+			<div class="fh5co-cover text-center login-cover" data-stellar-background-ratio="0.5" style="background-image: url(./assets/images/fest4.jpg);">
+				<div class="desc animate-box">
+					<form action="/login" method="POST">
+					<div class="form-group">
+						<input class="form-control form-control-login" type="text" placeholder="username" name="username">
+					</div>
+					<div class="form-group">
+						<input class="form-control form-control-login" type="password" placeholder="password" name="password">
+					</div>
+					<button class="btn btn-primary btn-md">Login</button>
+					</form>
+				</div>
+			</div>
+
+		</div>
+		<!-- end:header-top -->
+<% include partials/footer.ejs %>

@@ -1,0 +1,90 @@
+<% include partials/header.ejs %>
+	<body>
+				<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+		<div id="fh5co-header">
+			<header id="fh5co-header-section">
+				<div class="container">
+					<div class="nav-header">
+						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+						<h1 class="animate-box" id="fh5co-logo"><a href="/home"><img class="logo-img" src="./assets/images/SR-LOGO.png"></a></h1>
+						<!-- <h1 id="fh5co-logo"><a href="/home">SR<span>DTU</span></a></h1> -->
+						<!-- START #fh5co-menu-wrap -->
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+							<% if(!currentUser){ %>
+                    			<li><a href="/home">Home</a></li>
+                    			<li class="active"><a href="/contact">Contact Us</a></li>
+                    			<li><a href="/discussions">Discussions</a></li>
+                  	  			<li><a href="/downloads">Downloads</a></li>
+                    			<li><a href="/login">SR PORTAL | Login</a></li>
+                  	  		<% } else { %>
+                  	  			<li><a href="#">Signed in as <%= currentUser.username%></a></li>
+                  	  			<li><a href="/home">Home</a></li>
+                    			<li class="active"><a href="/contact">Contact Us</a></li>
+                    			<li><a href="/discussions">Discussions</a></li>
+                  	  			<li><a href="/downloads">Downloads</a></li>
+                            	<li><a href="/logout">Logout</a></li>
+                    		<% } %>				
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
+			
+		</div>
+		
+		<div class="fh5co-hero fh5co-hero-2">
+			<div class="fh5co-overlay"></div>
+			<div class="fh5co-cover fh5co-cover_2 text-center" data-stellar-background-ratio="0.5" style="background-image: url(./assets/images/fest2_short.jpg);">
+				<div class="desc animate-box">
+					<h2>Contact Us</h2>
+				</div>
+			</div>
+		</div>
+		<!-- end:header-top -->
+		
+		<div id="fh5co-contact" class="animate-box">
+			<div class="container">
+				<form action="/feedback" method="POST">
+					<div class="row">
+						<div class="col-md-6">
+							<h3 class="section-title">Our Address</h3>
+							<ul class="contact-info">
+								<li><i class="icon-location-pin"></i>Delhi Technological University, Shahbad Daulatpur, Main Bawana Road, Delhi-110042, India</li>
+								<li><i class="icon-phone2"></i>+91 9711203997 | Samyak</li>
+								<li><i class="icon-mail"></i><a href="#">srdtu2k17@gmail.com</a></li>
+								<!-- <li><i class="icon-globe2"></i><a href="#">www.yoursite.com</a></li> -->
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Name" name="name">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Email" name="email">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<textarea class="form-control" id="" cols="30" rows="7" placeholder="Message" name="message"></textarea>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<input type="submit" value="Send Message" class="btn btn-primary">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- END fh5co-contact -->
+<% include partials/footer.ejs %>
+

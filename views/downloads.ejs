@@ -1,0 +1,87 @@
+<% include partials/header.ejs %>
+	<body>
+		<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+		<div id="fh5co-header">
+			<header id="fh5co-header-section">
+				<div class="container">
+					<div class="nav-header">
+						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+						<h1 class="animate-box" id="fh5co-logo"><a href="/home"><img class="logo-img" src="./assets/images/SR-LOGO.png"></a></h1>
+						<!-- START #fh5co-menu-wrap -->
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+							<% if(!currentUser){ %>
+                    			<li><a href="/home">Home</a></li>
+                    			<li><a href="/contact">Contact Us</a></li>
+                    			<li><a href="/discussions">Discussions</a></li>
+                    			<li class="active"><a href="/downloads">Downloads</a></li>
+                    			<li><a href="/login">SR PORTAL | Login</a></li>
+                  	  		<% } else { %>
+                  	  			<li><a href="#">Signed in as <%= currentUser.username%></a></li>
+                  	  			<li><a href="/home">Home</a></li>
+                    			<li><a href="/contact">Contact Us</a></li>
+                    			<li><a href="/discussions">Discussions</a></li>
+                  	  			<li class="active"><a href="/downloads">Downloads</a></li>
+                            	<li><a href="/logout">Logout</a></li>
+                    		<% } %>				
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
+			
+		</div>
+		
+		<div class="fh5co-hero fh5co-hero-2">
+			<div class="fh5co-overlay-d"></div>
+			<div class="fh5co-cover fh5co-cover_2 text-center" data-stellar-background-ratio="0.5" style="background-image: url(./assets/images/circuit.jpg);">
+				<div class="desc animate-box">
+					<h2>Downloads</h2>
+					<div class="container">
+						<p class="header_para">With a very broad spectrum of softwares made available at a single place and simply a click away, this becomes a one-stop for everything. Saving you from the hassle of repeated searching for the perfect place to start, we bring to you our well structured and easy to use 'download' section.</p>
+						<p class="header_para">Happy learning fellas!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end:header-top -->
+		<div id="fh5co-work-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 animate-box">
+						<h1>Softwares</h1>
+						<div class="row downloads-row" style="display:flex; flex-wrap: wrap;">
+							<div class="col-md-4">
+								<a class="thumbnail downloads-thumbnail" href="/download_MATLAB"><img class="download-logo" src="./assets/images/Matlab_Logo.png"> <div>MATLAB</div></a>
+							</div>
+							<div class="col-md-4">
+								<a class="thumbnail downloads-thumbnail" href="/download_MATLAB"><img class="download-logo" src="./assets/images/Photoshop_CC_icon.png"> <div>Adobe Photoshop</div></a>
+							</div>
+							<div class="col-md-4">
+								<a class="thumbnail downloads-thumbnail" href="/download_MATLAB"><img class="download-logo" src="./assets/images/SolidWorks_Logo.png"> <div>Solid Works</div></a>
+							</div>
+							<div class="col-md-4">
+								<a class="thumbnail downloads-thumbnail" href="/download_MATLAB"><img class="download-logo" src="./assets/images/Proteus_Logo.png"> <div>Proteus</div></a>
+							</div>
+							<div class="col-md-4">
+								<a class="thumbnail downloads-thumbnail" href="/download_MATLAB"><img class="download-logo" src="./assets/images/MS-Office_Logo.png"> <div>MS-Office</div></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4 animate-box">
+						<h1>Notes</h1>
+						<ul>
+							<li><a href="#">notes</a></li>
+							<li><a href="#">notes</a></li>
+							<li><a href="#">notes</a></li>
+							<li><a href="#">notes</a></li>
+							<li><a href="#">notes</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>			
+		<!-- END fh5co-downloads -->
+<% include partials/footer.ejs %>
+

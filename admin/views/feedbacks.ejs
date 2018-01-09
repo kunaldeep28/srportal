@@ -1,0 +1,20 @@
+<% include partials/header.ejs %>
+<div class="container">
+<table class="table table-stripped">
+<tr>
+	<th>#.</th>
+	<th>Name</th>
+	<th>Email</th>
+	<th>Message</th>
+</tr>
+<% for(var i=0; i<feedbacks.length; i++){ %>
+	<tr>
+		<td><%= i+1 %></td>
+		<td><%= feedbacks[i].name %></td>
+		<td><%= feedbacks[i].email %></td>
+		<td><%= feedbacks[i].message %></td>
+	</tr>
+<% } %>
+</table>
+</div>
+<% include partials/header.ejs %>
